@@ -45,6 +45,7 @@ if __name__ == '__main__':
     # Creacion del objeto pool
     #pool = Conexion.obtener_pool()
     #print(pool)
+
     # Obtener un objeto conexion
     cnx1 = Conexion.obtener_conexion()
     print(cnx1)
