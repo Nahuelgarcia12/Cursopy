@@ -1,0 +1,12 @@
+/*definicion de los estilos */
+body{
+    background-color:black;
+    color:white;
+}
+/*estiilos de link*/
+a{
+    color:blue;
+}
+a:hover{
+color:yellow;
+}
