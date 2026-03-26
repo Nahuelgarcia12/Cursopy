@@ -10,3 +10,10 @@ a{
 a:hover{
 color:yellow;
 }
+/*classes- selectores */
+.texto-centrado{
+    text-align:center;
+}
+.titulo{
+    font-size:200%
+}
