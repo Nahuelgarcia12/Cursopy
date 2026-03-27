@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField ,SubmitField
+from wtforms import StringField, IntegerField, SubmitField, HiddenField
 from wtforms.validators import DataRequired
 
 
 class ClienteForm(FlaskForm):
+    id= HiddenField('id',validators=[DataRequired()])
     nombre = StringField('Nombre',validators=[DataRequired()])
     apellido = StringField('Apellido',validators=[DataRequired()])
     membresia = IntegerField('Membresia',validators=[DataRequired()])

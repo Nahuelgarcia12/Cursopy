@@ -21,10 +21,13 @@ def guardar():
     cliente = Cliente()
     cliente_forma = ClienteForm(obj=cliente)
     if cliente_forma.validate_on_submit():
-        #llenamos el objeto cliente con los valores del form
+        # llenamos el objeto cliente con los valores del form
         cliente_forma.populate_obj(cliente)
-        #guardo al nuevo cliente en bd
-        cliente_dao.ClienteDAO.insertar(cliente)
+        if not cliente.id:  # si el id es cadena vacia regresa verdadero
+            # guardo al nuevo cliente en bd
+            cliente_dao.ClienteDAO.insertar(cliente)
+        else:
+            cliente_dao.ClienteDAO.actualizar(cliente)
     return redirect(url_for('inicio'))
 
 @app.route('/editar/<int:id>')
@@ -35,6 +38,11 @@ def editar(id):
     return render_template('index.html',titulo=titulo_app,
                            clientes=clientes_db, forma=cliente_forma)
 
+@app.route('/eliminar/<int:id>')
+def eliminar (id):
+    cliente =Cliente(id=id)
+    cliente_dao.ClienteDAO.eliminar(cliente)
+    return  redirect(url_for('inicio'))
 
 @app.route('/limpiar')
 def limpiar():
