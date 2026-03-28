@@ -1,3 +1,4 @@
+import mysql.connector
 import conexion
 from cliente import Cliente
 from conexion import Conexion

@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class ClienteForm(FlaskForm):
-    id= HiddenField('id',validators=[DataRequired()])
+    id= HiddenField('id')
     nombre = StringField('Nombre',validators=[DataRequired()])
     apellido = StringField('Apellido',validators=[DataRequired()])
     membresia = IntegerField('Membresia',validators=[DataRequired()])
